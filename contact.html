@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Nala Tours | Contact Us</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--HEADER SECTION WITH NAVIGATION-->
+    <header>
+        <h1>Nala Tours | Tours and Travel</h1>
+        <div class="topbar">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="booking.html">Booking</a>
+                <a href="vehicles.html">Our Vehicles</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <span id="auth-area"></span>    
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2 class="accent">Contact Us</h2>
+            <label>Your name:</label>
+            <input id="name" placeholder="Enter your name">
+
+            <label>Your email:</label>
+            <input id="email" type="email" placeholder="Enter your email">
+
+            <label>Your message:</label>
+            <textarea id="message" rows="5" placeholder="Type your message here"></textarea>
+
+            <button id="btn-contact" class="btn">Send message</button>
+            <div id="contact-status" class="muted"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">© 2025 Nala Tours</div>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>

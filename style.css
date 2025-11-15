@@ -1,0 +1,38 @@
+:root {
+    --accent: #D4B177;
+    --accent-dark: #B28C55;
+    --navy: #0A1A24;
+    --navy-light: #102733;
+    --muted: #C7BBA7;
+    --text-light: #E6D8C3;
+    --error: #b00020;
+}
+
+body {
+    font-family: Inter, system-ui;
+    margin: 0;
+    color: var(--text-light);
+    background: var(--navy);
+}
+
+header {
+    background: linear-gradient(90deg, var(--navy), var(--accent-dark));
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: var(---accent);
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.container { max-width: 900px; margin: auto; padding: 20px; }
+.card { background: var(--navy-light); padding: 18px; border-radius: 10px; }
+.btn { background: var(--accent); color: var(--navy); padding: 10px; border: 0; border-radius: 8px; cursor: pointer; }
+.btn.alt { background: var(--accent-dark); }
+input, textarea, select { width: 100%; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--text-light); }
+.error { color: var(--error); }
+.vehicles-list { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));}

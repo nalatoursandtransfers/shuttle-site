@@ -3,25 +3,60 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Nala Tours | Tour & Travel</title>
-    <style>
 
-    </style>
+    <title>Nala Tours | Home</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!--HEADER SECTION WITH NAVIGATION-->
     <header>
         <h1>Nala Tours - Tours and Travel</h1>
         <div class="topbar">
             <nav>
-                <a href="#/">Home</a>
-                <a href="#/vehicles">Our Vehicles</a>
-                <a href="#/booking">Make a Booking</a>
-                <a href="#contact">Contact Us</a>
+                <a href="index.html">Home</a>
+                <a href="booking.html">Booking</a>
+                <a href="vehicles.html">Our Vehicles</a>
+                <a href="contact.html">Contact</a>
             </nav>
+            <span id="auth-area"></span>    
         </div>
     </header>
+
+    <main class="container">
+        <section class="card">
+            <h2 class="accent">Welcome to Nala Tours!</h2>
+            <p class="muted">Safe, affordable shuttle transfers in South Africa. Book online and manage your bookings.</p>
+            <div class="action-buttons">
+                <a class="btn" href="booking.html"> Book Now</a>
+                <a class="btn" href="vehicles.html">See Our Vehicles</a>
+            </div>
+
+            <hr>
+            <div class="grid two">
+                <div>
+                    <h3 class="accent">How it works</h3>
+                    <ol>
+                        <li><a href="signup.html">Sign up</a> or <a href="login.html">log in</a>.</li>
+                        <li>Fill the booking form.</li>
+                        <li>We confirm your booking and you travel safely.</li>
+                    </ol>
+                </div>
+                <div class="card small-card">
+                    <h4 class="accent">Quick contact</h4>
+                    <p class="muted">WhatsApp: <a href="https://wa.me/27846547046" target="_blank" class="accent">+27 84 654 7046</a></p>
+                    <p class="muted">Email: Nalatourstransfers@gmail.com</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">© 2025 Nala Tours</div>
+    </footer>
+
+    <script src="app.js" type="module"></script>
 </body>
-
-
-
 </html>
+    
