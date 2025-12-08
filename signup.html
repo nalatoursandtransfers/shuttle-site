@@ -23,59 +23,111 @@
             <img src="images/favicon.png" class="logo" />
             <h1>NalaTours & Transport (Sandton)</h1>
         </div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="booking.html">Booking</a>
-                <a href="vehicles.html">Our Vehicles</a>
-                <a href="contact.html">Contact</a>
-                <a href="signup.html" i class="fas fa-user"></a>
-            </nav>    
-        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="booking.html">Booking</a>
+            <a href="vehicles.html">Our Vehicles</a>
+            <a href="contact.html">Contact</a>
+            <a href="signup.html"><i class="fas fa-user"></i></a>
+        </nav>    
     </header>
 
 <main class="container">
     <section class="card">
         <h2 class="accent">Create Account</h2>
+
         <form id="signup-form">
             <input type="text" id="signup-name" placeholder="Full Name" required />
             <input type="email" id="signup-email" placeholder="Email" required />
             <input type="password" id="signup-password" placeholder="Password" required />
-
             <button type="submit" class="btn">Sign Up</button>
         </form>
+
+        <p id="signup-error" style="color:red; margin-top:10px;"></p>
+
         <p>Already have an account? <a href="login.html">Login here</a></p>
     </section>
 </main>
 
-    <section class="quick-contact">
-        <h3>Ready to Book Your Shuttle?</h3>
-        <p>Contact us today to reserve your spot or learn more about our services.</p>
-    </section>
+<section class="quick-contact">
+    <h3>Ready to Book Your Shuttle?</h3>
+    <p>Contact us today to reserve your spot or learn more about our services.</p>
+</section>
 
-
-    <div class="footer-links">
-            <div class="footer-headings">
-            <a href="index.html">Home</a>
-            <a href="booking.html">Booking</a>
-            <a href="vehicles.html">Our Vehicles</a>
-            <a href="contact.html">Contact</a>
-            <a href="signup.html">Sign Up</a>
-        </div>
-
-        <div class="footer-icons">
-            <a href="index.html"><i class="fas fa-home"></i></a>
-            <a href="booking.html"><i class="fas fa-calendar-check"></i></a>
-            <a href="vehicles.html"><i class="fas fa-car"></i></a>
-            <a href="contact.html"><i class="fas fa-phone"></i></a>
-            <a href="signup.html"><i class="fas fa-user"></i></a>
-        </div>
+<div class="footer-links">
+    <div class="footer-headings">
+        <a href="index.html">Home</a>
+        <a href="booking.html">Booking</a>
+        <a href="vehicles.html">Our Vehicles</a>
+        <a href="contact.html">Contact</a>
+        <a href="signup.html">Sign Up</a>
     </div>
 
+    <div class="footer-icons">
+        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a href="booking.html"><i class="fas fa-calendar-check"></i></a>
+        <a href="vehicles.html"><i class="fas fa-car"></i></a>
+        <a href="contact.html"><i class="fas fa-phone"></i></a>
+        <a href="signup.html"><i class="fas fa-user"></i></a>
+    </div>
+</div>
 
-    <footer>
-        <p class="footer-copy">©2025 NalaTours & Transfers. All Rights Reserved.<br>Website created and developed by Amahle Khoza</p>
-    </footer>
+<footer>
+    <p class="footer-copy">©2025 NalaTours & Transfers. All Rights Reserved.<br>Website created and developed by Amahle Khoza</p>
+</footer>
 
-    <script type="module" src="app.js"></script>
+<!-- ------------------------ SIGNUP LOGIC ------------------------- -->
+<script type="module">
+import { auth, db } from "./firebase.js";
+import { createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+const form = document.getElementById("signup-form");
+const errBox = document.getElementById("signup-error");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("signup-name").value.trim();
+    const email = document.getElementById("signup-email").value.trim();
+    const password = document.getElementById("signup-password").value.trim();
+
+    if (!name || !email || !password) {
+        errBox.textContent = "Please fill in all fields.";
+        return;
+    }
+
+    try {
+        // CREATE USER ACCOUNT
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+
+        // UPDATE DISPLAY NAME
+        await updateProfile(userCred.user, { displayName: name });
+
+        // ADD USER TO FIRESTORE
+        await setDoc(doc(db, "users", userCred.user.uid), {
+            name,
+            email,
+            createdAt: new Date()
+        });
+
+        // SUCCESS: REDIRECT
+        window.location.href = "index.html";
+
+    } catch (error) {
+        // SHOW FRIENDLY ERROR MESSAGE
+        if (error.code === "auth/email-already-in-use") {
+            errBox.textContent = "This email is already registered. Please login.";
+        } else if (error.code === "auth/invalid-email") {
+            errBox.textContent = "Invalid email address.";
+        } else if (error.code === "auth/weak-password") {
+            errBox.textContent = "Password should be at least 6 characters.";
+        } else {
+            errBox.textContent = error.message;
+        }
+    }
+});
+</script>
+
 </body>
 </html>
