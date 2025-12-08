@@ -55,11 +55,18 @@ color:var(--gold);
 margin-left:18px;
 text-decoration:none;
 font-weight:600;
-font-size:15px;
+font-size:16px;
 }
+
 nav a:hover{
-color:var(--cream);
+cursor: pointer;
+color: #102733;
+font-weight: 900;
 }
+
+
+
+
 .container{
 max-width:1400px;
 margin:40px auto;
@@ -280,9 +287,9 @@ padding-top: 50px;
 .why-choose-us {
     padding-left: 20px;
     background: #ffffff;
-    text-align: center;
+    text-align: left;
     color: var(--navy);
-    max-width: 1400px;
+    max-width: 900px;
     border-radius: 16px;
     max-height: 600px;
 
@@ -290,7 +297,7 @@ padding-top: 50px;
 }
 
 h4 {
-    font-size: 50px;
+    font-size: 30px;
     margin-bottom: 10px;
     font-family: Poppins, sans-serif;
     font-weight: 800;
@@ -299,11 +306,12 @@ h4 {
 
 .wcu-item {
     max-width: 600px;
-    margin: 30px auto;
+    /* margin: 30px auto; */
     padding: 25px;
     background: var(--navy-light);
     color: var(--text-light);
     border-radius: 12px;
+    font-size: 13px;
     opacity: 0; 
     transform: translateX(-50px);
 }

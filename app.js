@@ -23,10 +23,9 @@ const track = document.querySelector('.carousel-track');
 let x = 0;
 
 function animateCarousel() {
-    x -= 1; // adjust speed here
+    x -= 1; 
     const trackWidth = track.scrollWidth;
 
-    // Reset smoothly so no jump is visible
     if (Math.abs(x) >= trackWidth / 2) {
         x = 0;
     }
