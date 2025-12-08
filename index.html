@@ -1,66 +1,162 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" type="image/png" href="images/favicon.png"/>
     <title>NalaTours & Transfers | Home</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
+
+
 <body>
 
-    <!--HEADER SECTION WITH NAVIGATION-->
     <header>
-        <img src="images/favicon.png" class="logo" />
-        <h1>NalaTours & Transfers (Sandton)</h1>
-        <div class="topbar">
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="booking.html">Booking</a>
-                <a href="vehicles.html">Our Vehicles</a>
-                <a href="contact.html">Contact</a>
-                <a href="signup.html" class="icon-link">👤</a>
-            </nav>
-            <span id="auth-area"></span>    
+        <div class="left-section">
+            <img src="images/favicon.png" class="logo" />
+            <h1>NalaTours & Transport (Sandton)</h1>
         </div>
+
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="booking.html">Booking</a>
+            <a href="vehicles.html">Our Vehicles</a>
+            <a href="contact.html">Contact</a>
+            <a href="signup.html" i class="fas fa-user"></a>
+        </nav> 
     </header>
 
-    <main class="container">
-        <section class="card">
-            <h2 class="accent">Welcome to NalaTours & Transfers!</h2>
-            <p class="muted">Safe, affordable shuttle transfers in South Africa. Book online and manage your bookings.</p>
-            <div class="action-buttons">
-                <a class="btn" href="booking.html"> Book Now</a>
-                <a class="btn" href="vehicles.html">See Our Vehicles</a>
-            </div>
-
-            <hr>
-            <div class="grid two">
-                <div>
-                    <h3 class="accent">How it works</h3>
-                    <ol>
-                        <li><a href="signup.html">Sign up</a> or <a href="login.html">log in</a>.</li>
-                        <li>Fill the booking form.</li>
-                        <li>We confirm your booking and you travel safely.</li>
-                    </ol>
-                </div>
-                <div class="card small-card">
-                    <h4 class="accent">Quick contact</h4>
-                    <p class="muted">Phone: 071 522 6733 </p>
-                    <p class="muted">WhatsApp: <a href="https://wa.me/27846547046" target="_blank" class="accent">+27 84 654 7046</a></p>
-                    <p class="muted">Email: nalatourstransfers@gmail.com</p>
-                </div>
-            </div>
-        </section>
+    <main class="hero-container">
+    <section class="hero-section">
+        <h2 class="hero-title">WELCOME TO <br>NALATOURS & TRANSPORT</h2>
+    </section>
     </main>
 
+<section class="carousel-section">
+    <div class="carousel-track">
+        <div class="carousel-item"><img src="images/number1.jpg"></div>
+        <div class="carousel-item"><img src="images/number2.jpg"></div>
+        <div class="carousel-item"><img src="images/number3.jpg"></div>
+        <div class="carousel-item"><img src="images/number1.jpg"></div>
+        <div class="carousel-item"><img src="images/number2.jpg"></div>
+        <div class="carousel-item"><img src="images/number3.jpg"></div>
+    </div>
+
+</section>
+
+    <section class="about-section">
+        <div class="about-container">
+            <h3>Reliable. Comfortable. On Time</h3>
+            <p>
+            At NalaTours and Transport, we pride ourselves on delivering a safe, professional
+            and comfortable shuttle experience tailored to your needs. Whether you're travelling for business, leisure,
+            airport transfers or group events, our dedicated team ensures seamless journeys from start to finish.
+            <br><br>
+            We understand that reliability matters - that is why we prioritize punctuality, clean vehicles, experienced drivers
+            and customer care that goes above or beyond. With NalaTours and Transport, you don't just get transport;
+            you get peace of mind and a travel experience designed around you.
+            <br><br>
+            Book today and let us get you where you need to be, safely and comfortably.
+            </p>
+        </div>
+
+        <div class="about-image">
+            <img src="images/favicon.png" alt="Shuttle Image">
+        </div>
+    </section>
+
+    <br>
+
+   <!-- WHY CHOOSE US -->
+<section class="why-choose-us">
+    <h4>Why Choose Us</h4>
+
+    <div class="wcu-item">
+        <h3>Reliable & On-Time</h3>
+        <p>We arrive promptly and ensure safe, stress-free transport.</p>
+    </div>
+
+    <div class="wcu-item">
+        <h3>Affordable Pricing</h3>
+        <p>Transparent prices with no hidden fees.</p>
+    </div>
+
+    <div class="wcu-item">
+        <h3>Comfortable Shuttles</h3>
+        <p>Clean, spacious and air-conditioned vehicles.</p>
+    </div>
+</section>
+
+    <br>
+    <br>
+    <br>
+<!-- SERVICE AREAS -->
+<section class="service-areas">
+    <h4>Service Areas</h4>
+
+    <div class="sa-item">
+        <h3>Pretoria</h3>
+    </div>
+
+    <div class="sa-item">
+        <h3>Johannesburg</h3>
+    </div>
+
+    <div class="sa-item">
+        <h3>Centurion</h3>
+    </div>
+
+    <div class="sa-item">
+        <h3>Midrand</h3>
+    </div>
+
+    <div class="sa-item">
+        <h3>OR Tambo Airport</h3>
+    </div>
+</section>
+
+
+
+
+    <section class="quick-contact">
+        <h3>Ready to Book Your Shuttle?</h3>
+        <p>Contact us today to reserve your spot or learn more about our services.</p>
+    </section>
+
+
+    <div class="footer-links">
+            <div class="footer-headings">
+            <a href="index.html">Home</a>
+            <a href="booking.html">Booking</a>
+            <a href="vehicles.html">Our Vehicles</a>
+            <a href="contact.html">Contact</a>
+            <a href="signup.html">Sign Up</a>
+        </div>
+
+        <div class="footer-icons">
+            <a href="index.html"><i class="fas fa-home"></i></a>
+            <a href="booking.html"><i class="fas fa-calendar-check"></i></a>
+            <a href="vehicles.html"><i class="fas fa-car"></i></a>
+            <a href="contact.html"><i class="fas fa-phone"></i></a>
+            <a href="signup.html"><i class="fas fa-user"></i></a>
+        </div>
+    </div>
+
+
     <footer>
-        <div class="container">©2025 NalaTours & Transfers</div>
+        <p class="footer-copy">©2025 NalaTours & Transfers. All Rights Reserved.<br>Website created and developed by Amahle Khoza</p>
     </footer>
 
-    <script src="app.js" type="module"></script>
+    <script type="module" src="app.js"></script>
+
 </body>
 </html>
-    
