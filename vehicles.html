@@ -37,8 +37,212 @@
     <main class="container">
         <section class="card">
             <h2 class="accent">Our Vehicles</h2>
-            <div id="vehicles-list" class="vehicles-list"></div>
+            <div class="carousel-vehicles" mask>
+                <article>
+                    <img src="images/number5.jpg" alt="vehicles-list">
+                    <h2>MERCEDES</h2>
+                    <div>
+                        <p>A beautiful white luxurious car</p>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="images/number5.jpg" alt="vehicles-list">
+                    <h2>MERCEDES</h2>
+                    <div>
+                        <p>A beautiful white luxurious car</p>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="images/number5.jpg" alt="vehicles-list">
+                    <h2>MERCEDES</h2>
+                    <div>
+                        <p>A beautiful white luxurious car</p>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="images/number5.jpg" alt="vehicles-list">
+                    <h2>MERCEDES</h2>
+                    <div>
+                        <p>A beautiful white luxurious car</p>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="images/number5.jpg" alt="vehicles-list">
+                    <h2>MERCEDES</h2>
+                    <div>
+                        <p>A beautiful white luxurious car</p>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="images/number5.jpg" alt="vehicles-list">
+                    <h2>MERCEDES</h2>
+                    <div>
+                        <p>A beautiful white luxurious car</p>
+                    </div>
+                </article>
+            </div>
         </section>
+
+        <style>
+           .carousel-vehicles {
+    --items: 6;
+    --carousel-vehicles-duration: 40s;
+}
+
+/* Only apply main layout on wider screens */
+@media (min-width: 1400px) {
+
+    .carousel-vehicles {
+        --carousel-vehicles-width: min(80vw, 800px);
+        --carousel-vehicles-item-width: 280px;
+        --carousel-vehicles-item-height: 450px;
+        --carousel-vehicles-item-gap: 2rem;
+
+        --clr-cta: rgb(0, 132, 209);
+
+        position: relative;
+        width: 100%;
+max-width: var(--carousel-vehicles-width);
+margin-inline: auto;
+position: relative;
+overflow: hidden;
+        height: var(--carousel-vehicles-item-height);
+        overflow: hidden; /* clip */
+    }
+
+    /* Mask fade effect */
+    .carousel-vehicles[mask] {
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 10% 90%,
+            transparent
+        );
+    }
+
+    /* Reverse scrolling if needed */
+    .carousel-vehicles[reverse] > article {
+        animation-direction: reverse;
+    }
+
+    /* Pause on hover */
+    .carousel-vehicles:hover > article {
+        animation-play-state: paused;
+    }
+
+    /* Article styling */
+    .carousel-vehicles > article {
+        position: absolute;
+        top: 0;
+        left: calc((100% + var(--carousel-vehicles-item-gap)));
+        width: var(--carousel-vehicles-item-width);
+        height: var(--carousel-vehicles-item-height);
+
+        display: grid;
+        grid-template-rows: 200px auto 1fr auto;
+        gap: 0.25rem;
+
+        padding-bottom: 1rem;
+        border-radius: 10px;
+
+        background: #D4B177;
+        color: #314158;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+
+        will-change: transform;
+        animation-name: marquee;
+        animation-duration: var(--carousel-vehicles-duration);
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        /* offset animation start by index */
+        animation-delay: calc(
+            var(--carousel-vehicles-duration) / var(--items) * var(--i) * -1
+        );
+    }
+
+    /* Assign indexes (i) to each */
+    .carousel-vehicles > article:nth-child(1) { --i: 0; }
+    .carousel-vehicles > article:nth-child(2) { --i: 1; }
+    .carousel-vehicles > article:nth-child(3) { --i: 2; }
+    .carousel-vehicles > article:nth-child(4) { --i: 3; }
+    .carousel-vehicles > article:nth-child(5) { --i: 4; }
+    .carousel-vehicles > article:nth-child(6) { --i: 5; }
+
+    /* Image styling */
+    .carousel-vehicles img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .carousel-vehicles > article > *:not(img) {
+        padding: 0 1rem;
+    }
+
+    .carousel-vehicles > article > div {
+        grid-row: span 2;
+        display: grid;
+        grid-template-rows: subgrid;
+        font-size: 0.8rem;
+    }
+
+    .carousel-vehicles > article h2 {
+        font-size: 1.2rem;
+        font-weight: 300;
+        padding: 0.75rem 0 0.25rem;
+        margin: 0;
+    }
+
+    .carousel-vehicles > article p {
+        margin: 0;
+    }
+
+    .carousel-vehicles > article a {
+        text-decoration: none;
+        text-transform: lowercase;
+        border: 1px solid var(--clr-cta);
+        color: var(--clr-cta);
+        border-radius: 3px;
+        padding: 0.25rem 0.5rem;
+
+        place-self: start;
+        transition: 150ms ease-in-out;
+    }
+
+    .carousel-vehicles > article a:hover,
+    .carousel-vehicles > article a:focus-visible {
+        background-color: var(--clr-cta);
+        color: white;
+        outline: none;
+    }
+
+    /* Animation keyframes */
+    @keyframes marquee {
+        100% {
+            transform: translateX(
+                calc(
+                    (var(--items) * 
+                    (var(--carousel-vehicles-item-width) + var(--carousel-vehicles-item-gap))) 
+                    * -1
+                )
+            );
+        }
+    }
+}
+
+/* Container fix */
+/* .container {
+    height: fit-content;
+}  */
+
+    </style>
     </main>
 
     <section class="quick-contact">

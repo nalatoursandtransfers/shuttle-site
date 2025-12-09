@@ -68,13 +68,16 @@ font-weight: 900;
 
 
 .container{
+padding-top: 20px;
 max-width:1400px;
-margin:40px auto;
+margin: 0 auto;
 height: fit-content;
+padding-bottom: 100px;
+
 }
+
 .card{
 background:var(--navy-light);
-padding:25px;
 border-radius:14px;
 box-shadow:0 6px 20px rgba(0,0,0,.45);
 border:1px solid var(--gold-dark);
@@ -82,8 +85,16 @@ margin-bottom:35px;
 }
 .card h2{
 color:var(--gold);
+padding-top: 50px;
 margin-bottom:12px;
 }
+
+label {
+    color: var(--text-light);
+    font-family: Inter, system-ui;
+    margin-left: 45px;
+}
+
 .btn{
 background:var(--gold);
 color:var(--navy);
@@ -94,13 +105,21 @@ font-weight:700;
 cursor:pointer;
 margin-top:12px;
 transition:0.3s;
+margin-left: 650px;
+margin-bottom: 30px;
 }
+
+.btn-contact {
+    padding-bottom: 30px;
+}
+
 .btn:hover{
 background:var(--gold-dark);
 }
 input,select,textarea{
-width:100%;
+width:1300px;
 padding:14px;
+margin-left: 45px;
 border-radius:10px;
 border:1px solid var(--accent);
 background:var(--navy-light);
@@ -121,6 +140,11 @@ input::placeholder{color:var(--beige);}
     opacity: 0.8;
 }
 
+.card p {
+    color: var(--text-light);
+    text-align: center;
+    padding-bottom: 30px;
+}
 
 h2 {
     font-size: 20px;
