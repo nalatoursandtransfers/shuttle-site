@@ -316,17 +316,22 @@ padding-top: 50px;
     max-width: 1400px;
     border-radius: 16px;
     max-height: 600px;
+    margin-top: 20px;
+    padding-bottom: 30px;
 
-    margin: 0 auto; 
+    margin: auto; 
 }
 
-.wcu-image img {
-    width: 450px;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.20);
+
+.why-choose-us h4{
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: Poppins, sans-serif;
+    font-weight: 800;
+    text-align: center;
 }
 
-h4 {
+.service-areas h4 {
     font-size: 30px;
     margin-bottom: 10px;
     font-family: Poppins, sans-serif;
@@ -337,13 +342,14 @@ h4 {
 .wcu-item {
     max-width: 600px;
     margin: 30px auto;
-    padding: 25px;
+    padding: 15px;
     background: var(--navy-light);
     color: var(--text-light);
     border-radius: 12px;
     font-size: 13px;
     opacity: 0; 
     transform: translateX(-50px);
+    font-family: Poppins, sans-serif;
 }
 
 /* SERVICE AREAS */
@@ -354,7 +360,7 @@ h4 {
     color: var(--navy);
     max-width: 1400px;
     border-radius: 16px;
-    max-height: 600px;
+    max-height: 800px;
 
     margin: 0 auto; 
     padding: 20px;
@@ -364,7 +370,7 @@ h4 {
 .sa-item {
     max-width: 400px;
     margin: 20px auto;
-    padding: 20px 30px;
+    padding: 20px 20px;
     background: var(--navy-light);
     color: var(--text-light);
     border-radius: 12px;
@@ -375,7 +381,8 @@ h4 {
 .sa-item h3 {
     margin: 0;
     font-size: 24px;
-    font-weight: 100;
+    font-weight: 400;
+    font-family: Poppins, sans-serif;
 }
 
 
