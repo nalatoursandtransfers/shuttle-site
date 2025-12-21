@@ -38,7 +38,27 @@
     <main class="container">
         <section class="card">
             <h2 class="accent">GET YOUR QUOTATION</h2>
+             <p class="step-indicator">
+        Step 1 of 3: Request a Quotation
+    </p>
             <div id="booking-error" class="error"></div>
+
+            <label>Full Name:</label>
+<input id="name" placeholder="Your full name" required>
+
+<label>Email Address:</label>
+<input id="email" type="email" placeholder="you@example.com" required>
+
+<label>Phone Number:</label>
+<input id="phone" type="tel" placeholder="+27 7X XXX XXXX" required>
+
+            <label>Service Type:</label>
+<select id="service">
+  <option value="airport">Airport Transfer</option>
+  <option value="shuttle">Shuttle Service</option>
+  <option value="tour">Tour</option>
+  <option value="corporate">Corporate Transport</option>
+</select>
 
             <label>Pickup location:</label>
             <input id="pickup" placeholder="e.g., OR Tambo Airport">
@@ -64,6 +84,15 @@
             <textarea id="notes" rows="3" placeholder="Any special requirements?"></textarea>
             <br>
             <br>
+            <label>Preferred Payment Method:</label>
+<select id="payment">
+  <option value="quote">Pay after quotation</option>
+  <option value="eft">EFT / Bank Transfer</option>
+  <option value="online">Online Card Payment</option>
+</select>
+<p class="small-note">
+Payment details will be shared securely after your quotation is confirmed.
+</p>
             <button id="btn-book" class="btn">Submit Booking</button>
         </section>
     </main>

@@ -21,7 +21,7 @@
     <header>
         <div class="left-section">
             <img src="images/favicon.png" class="logo" />
-            <h1>NalaTours & Transport (Sandton)</h1>
+            <h1>NalaTours & Transfers (Sandton)</h1>
         </div>
         <nav>
             <a href="index.html">Home</a>
@@ -38,7 +38,7 @@
 
         <form id="signup-form">
             <label>Your name:</label>
-            <input type="text" id="signup-name" placeholder="Full Name" required />
+            <input type="text" id="signup-name" placeholder="Full Name" required autofocus/>
             <br>
             <br>
             <br>
@@ -48,15 +48,26 @@
             <br>
             <br>
             <label>Please create a password:</label>
-            <input type="password" id="signup-password" placeholder="Password" required />
+            <div class="password-field">
+    <input type="password" id="signup-password" placeholder="Password" required />
+    <i class="fas fa-eye" id="togglePassword"></i>
+</div>
             <br>
             <br>
-            <button type="submit" class="btn">Sign Up</button>
+            <label>Confirm password:</label>
+<input type="password" id="signup-confirm" placeholder="Confirm Password" required />
+<br><br>
+           <button type="submit" class="btn" id="signup-btn">Sign Up</button>
         </form>
 
         <p id="signup-error" style="color:red; margin-top:10px;"></p>
 
         <p>Already have an account? <a href="login.html">Login here</a></p>
+
+        <label class="checkbox">
+    <input type="checkbox" id="terms" required />
+    I agree to the <a href="#">Terms</a> & <a href="#">Privacy Policy</a>
+</label>
     </section>
 </main>
 
@@ -87,58 +98,9 @@
     <p class="footer-copy">©2025 NalaTours & Transfers. All Rights Reserved.<br>Website created and developed by Amahle Khoza</p>
 </footer>
 
-<!-- ------------------------ SIGNUP LOGIC ------------------------- -->
-<script type="module">
-import { auth, db } from "./firebase.js";
-import { createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-
-const form = document.getElementById("signup-form");
-const errBox = document.getElementById("signup-error");
-
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById("signup-name").value.trim();
-    const email = document.getElementById("signup-email").value.trim();
-    const password = document.getElementById("signup-password").value.trim();
-
-    if (!name || !email || !password) {
-        errBox.textContent = "Please fill in all fields.";
-        return;
-    }
-
-    try {
-        // CREATE USER ACCOUNT
-        const userCred = await createUserWithEmailAndPassword(auth, email, password);
-
-        // UPDATE DISPLAY NAME
-        await updateProfile(userCred.user, { displayName: name });
-
-        // ADD USER TO FIRESTORE
-        await setDoc(doc(db, "users", userCred.user.uid), {
-            name,
-            email,
-            createdAt: new Date()
-        });
-
-        // SUCCESS: REDIRECT
-        window.location.href = "index.html";
-
-    } catch (error) {
-        // SHOW FRIENDLY ERROR MESSAGE
-        if (error.code === "auth/email-already-in-use") {
-            errBox.textContent = "This email is already registered. Please login.";
-        } else if (error.code === "auth/invalid-email") {
-            errBox.textContent = "Invalid email address.";
-        } else if (error.code === "auth/weak-password") {
-            errBox.textContent = "Password should be at least 6 characters.";
-        } else {
-            errBox.textContent = error.message;
-        }
-    }
-});
-</script>
-
 </body>
+
+<!-- ------------------------ SIGNUP LOGIC ------------------------- -->
+<script type="module" src="signup.js"></script>
+
 </html>

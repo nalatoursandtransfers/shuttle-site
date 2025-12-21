@@ -16,69 +16,36 @@
 <header>
     <div class="left-section">
         <img src="images/favicon.png" class="logo" />
-        <h1>NalaTours & Transport (Sandton)</h1>
+        <h1>NalaTours & Transfers (Sandton)</h1>
     </div>
     <nav>
         <a href="index.html">Home</a>
         <a href="booking.html">Booking</a>
         <a href="vehicles.html">Our Vehicles</a>
         <a href="contact.html">Contact</a>
-        <span id="auth-section">
-            <a href="signup.html"><i class="fas fa-user"></i></a>
-        </span>
+        <a href="signup.html"><i class="fas fa-user"></i></a>
     </nav>    
 </header>
 
-<main class="hero-section">
-    <h1 class="hero-title">Login to NalaTours & Transfers</h1>
+<main class="container">
+    <section class="card">
+    <h2 class="accent">Login to NalaTours & Transfers</h2>
+
     <p id="login-msg" style="color: var(--accent); text-align:center;"></p>
 
-    <section class="about-section" style="flex-direction: column; gap: 30px;">
-        <div class="about-container" style="max-width: 400px; padding: 30px;">
-            <h2>Login</h2>
             <form id="login-form">
                 <input type="email" id="email" placeholder="Email" required>
                 <input type="password" id="password" placeholder="Password" required>
                 <button type="submit" class="btn">Login</button>
             </form>
-        </div>
     </section>
 </main>
 
 <footer>
     <p class="footer-copy">©2025 NalaTours & Transfers. All Rights Reserved.<br>Website created and developed by Amahle Khoza</p>
 </footer>
-
-<script type="module">
-import { auth } from "./firebase.js";
-import { signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-
-const loginForm = document.getElementById("login-form");
-const loginMsg = document.getElementById("login-msg");
-
-loginForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-
-    try {
-        await signInWithEmailAndPassword(auth, email, password);
-        // Redirect to homepage if login succeeds
-        window.location.href = "index.html";
-    } catch (error) {
-        loginMsg.textContent = "Invalid email or password. Please try again.";
-        console.error(error);
-    }
-});
-
-// Optional: Redirect logged-in users automatically
-onAuthStateChanged(auth, (user) => {
-    if(user) {
-        window.location.href = "index.html";
-    }
-});
-</script>
-
 </body>
+
+<script type="module" src="login.js"></script>
+
 </html>
