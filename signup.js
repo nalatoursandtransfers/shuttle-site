@@ -64,3 +64,11 @@ import { sendEmailVerification } from
 "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
 await sendEmailVerification(userCred.user);
+
+errBox.style.color = "green";
+errBox.textContent =
+    "Account created! Please verify your email before booking.";
+
+setTimeout(() => {
+    window.location.href = "login.html";
+}, 2500);
