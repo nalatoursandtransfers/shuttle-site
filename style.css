@@ -94,6 +94,7 @@ position:relative;
 height:400px;
 overflow:hidden;
 background: var(--navy);
+margin-bottom: 90px;
 }
 
 .carousel-track {
