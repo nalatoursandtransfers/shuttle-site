@@ -82,6 +82,11 @@ nav a.active {
     border-bottom: 2px solid var(--accent);
 }
 
+nav a.active:hover {
+    border-bottom: 2px solid #102733;
+}
+
+
 nav a:hover {
     cursor: pointer;
     color: #102733;
@@ -548,6 +553,7 @@ input::placeholder {
     justify-content: center;
     transition: transform 0.5s ease, opacity 0.5s ease;
     border: 1px solid var(--accent);
+    will-change: transform, opacity;
 }
 
 .step-number-block h3 {

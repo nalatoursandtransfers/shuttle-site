@@ -94,9 +94,21 @@ gsap.utils.toArray(".wcu-item").forEach((item, i) => {
 
 /* ----------------- HOW IT WORKS ----------------- */
 const steps = [
-    { number: 'Step 1', title: 'Request a Booking', desc: 'Choose your service and send us your travel details.' },
-    { number: 'Step 2', title: 'Get Confirmation', desc: 'We confirm availability and pricing quickly.' },
-    { number: 'Step 3', title: 'Enjoy the Ride', desc: 'We pick you up on time and get you there safely.' }
+    {
+        number: 'Step 1',
+        title: 'Request a Booking',
+        desc: 'Choose your service and send us your travel details.'
+    },
+    {
+        number: 'Step 2',
+        title: 'Get Confirmation',
+        desc: 'We confirm availability and pricing quickly.'
+    },
+    {
+        number: 'Step 3',
+        title: 'Enjoy the Ride',
+        desc: 'We pick you up on time and get you there safely.'
+    }
 ];
 
 let currentStep = 0;
@@ -106,17 +118,45 @@ const detailsBlock = document.getElementById('step-details');
 const nextBtn = document.getElementById('next-step');
 const prevBtn = document.getElementById('prev-step');
 
-function updateStep() {
-    numberBlock.innerHTML = `<h3>${steps[currentStep].number}</h3>`;
-    detailsBlock.innerHTML = `<h3>${steps[currentStep].title}</h3><p>${steps[currentStep].desc}</p>`;
+function animateStepChange(direction = 1) {
+    const tl = gsap.timeline();
+
+    // Animate OUT
+    tl.to([numberBlock, detailsBlock], {
+        opacity: 0,
+        x: direction * -40,
+        duration: 0.85,
+        ease: "power2.in"
+    });
+
+    // Update content
+    tl.add(() => {
+        numberBlock.innerHTML = `<h3>${steps[currentStep].number}</h3>`;
+        detailsBlock.innerHTML = `
+            <h3>${steps[currentStep].title}</h3>
+            <p>${steps[currentStep].desc}</p>
+        `;
+    });
+
+    // Animate IN
+    tl.fromTo(
+        [numberBlock, detailsBlock],
+        { opacity: 0, x: direction * 40 },
+        {
+            opacity: 1,
+            x: 0,
+            duration: 0.45,
+            ease: "power2.out"
+        }
+    );
 }
 
 nextBtn.addEventListener('click', () => {
     currentStep = (currentStep + 1) % steps.length;
-    updateStep();
+    animateStepChange(1);
 });
 
 prevBtn.addEventListener('click', () => {
     currentStep = (currentStep - 1 + steps.length) % steps.length;
-    updateStep();
+    animateStepChange(-1);
 });
