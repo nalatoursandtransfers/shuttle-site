@@ -8,8 +8,4 @@ onAuthStateChanged(auth, (user) => {
         return;
     }
 
-    if (!user.emailVerified) {
-        alert("Please verify your email before booking.");
-        window.location.href = "index.html";
-    }
 });

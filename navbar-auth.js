@@ -23,3 +23,16 @@ onAuthStateChanged(auth, (user) => {
         `;
     }
 });
+
+// Get all nav links
+  const navLinks = document.querySelectorAll('header nav a');
+
+  // Get current page file name
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Loop through links and add 'active' to the matching one
+  navLinks.forEach(link => {
+    if(link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+  });

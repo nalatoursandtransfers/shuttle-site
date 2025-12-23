@@ -20,20 +20,18 @@
 <body>
 
     <header>
-        <div class="left-section">
-            <img src="images/favicon.png" class="logo" />
-            <h1>NalaTours & Transfers (Sandton)</h1>
-        </div>
-
-
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="booking.html">Booking</a>
-            <a href="vehicles.html">Our Vehicles</a>
-            <a href="contact.html">Contact</a>
-            <a href="signup.html"><i class="fas fa-user"></i></a>
-        </nav> 
-    </header>
+  <div class="left-section">
+    <img src="images/favicon.png" class="logo" alt="NalaTours & Transfers Logo" />
+    <h1>NALATOURS & TRANFERS (SANDTON)</h1>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="booking.html">Booking</a>
+    <a href="vehicles.html">Our Vehicles</a>
+    <a href="contact.html">Contact</a>
+    <a href="signup.html" class="user-icon"><i class="fas fa-user"></i></a>
+  </nav>
+</header>
 
     <main class="hero-container">
     <section class="hero-section">
@@ -52,11 +50,16 @@
     </div>
 
 </section>
+<br>
+    <br>
+    <br>
+    <br>
 
     <section class="about-section">
         <div class="about-container">
-            <h3>Reliable. Comfortable. On Time</h3>
+            <h3>RELIABLE. COMFORTABLE. ON TIME</h3>
             <p>
+            <br>
             At NalaTours and Transfers, we pride ourselves on delivering a safe, professional
             and comfortable shuttle experience tailored to your needs. Whether you're travelling for business, leisure,
             airport transfers or group events, our dedicated team ensures seamless journeys from start to finish.
@@ -74,41 +77,45 @@
         </div>
     </section>
 
-    <br>
-    <br>
 
     <!-- SERVICE AREAS -->
 <section class="service-areas">
-    <h4>Service Areas</h4>
+    <h4>SERVICE AREAS</h4>
+    <p class="sa-subtitle">Reliable transfers across Gauteng and surrounding areas</p>
 
-    <div class="sa-item">
-        <h3>Pretoria</h3>
-    </div>
+    <div class="sa-grid">
+        <div class="sa-item">
+            <span class="sa-icon">📍</span>
+            <h3>Pretoria</h3>
+        </div>
 
-    <div class="sa-item">
-        <h3>Centurion</h3>
-    </div>
+        <div class="sa-item">
+            <span class="sa-icon">📍</span>
+            <h3>Centurion</h3>
+        </div>
 
-    <div class="sa-item">
-        <h3>Midrand</h3>
-    </div>
+        <div class="sa-item">
+            <span class="sa-icon">📍</span>
+            <h3>Midrand</h3>
+        </div>
 
-    <div class="sa-item">
-        <h3>Sandton</h3>
-    </div>
+        <div class="sa-item">
+            <span class="sa-icon">📍</span>
+            <h3>Sandton</h3>
+        </div>
 
-    <div class="sa-item">
-        <h3>OR Tambo Airport</h3>
+        <div class="sa-item">
+            <span class="sa-icon">📍</span>
+            <h3>OR Tambo Airport</h3>
+        </div>
     </div>
 </section>
 
-<br>
-<br>
 
 
     <!-- SERVICES PREVIEW -->
     <section class="services-preview">
-    <h4>Our Services</h4>
+    <h4>OUR SERVICES</h4>
 
     <div class="services-wrapper">
 
@@ -147,64 +154,64 @@
 
     </div>
 </section>
-    <br>
-    <br>
+    
    <!-- WHY CHOOSE US -->
 <section class="why-choose-us">
-    <h4>Why should YOU choose US?</h4>
+    <h4>WHY SHOULD YOU CHOOSE US?</h4>
 
     <div class="wcu-item">
+        <i class="fas fa-check-circle"></i>
         <h3>Reliable & On-Time</h3>
         <p>We arrive promptly and ensure safe, stress-free transport.</p>
     </div>
 
     <div class="wcu-item">
+        <i class="fas fa-check-circle"></i>
         <h3>Affordable Pricing</h3>
         <p>Transparent prices with no hidden fees.</p>
     </div>
 
     <div class="wcu-item">
+        <i class="fas fa-check-circle"></i>
         <h3>Comfortable Shuttles</h3>
         <p>Clean, spacious and air-conditioned vehicles.</p>
     </div>
 </section>
 
-    <br>
-    <br>
+    
 
 <section class="how-it-works">
-    <h4>How It Works</h4>
+    <h4>HOW IT WORKS?</h4>
 
-    <div class="steps">
-        <div class="step">
-            <span>1</span>
-            <h3>Request a Booking</h3>
-            <p>Choose your service and send us your travel details.</p>
+    <div class="how-steps">
+        <div class="step-blocks">
+            <!-- LEFT: Step number -->
+            <div class="step-number-block" id="step-number">
+                <h3>Step 1</h3>
+            </div>
+
+            <!-- RIGHT: Step details -->
+            <div class="step-details-block" id="step-details">
+                <h3>Request a Booking</h3>
+                <p>Choose your service and send us your travel details.</p>
+            </div>
         </div>
 
-        <div class="step">
-            <span>2</span>
-            <h3>Get Confirmation</h3>
-            <p>We confirm availability and pricing quickly.</p>
-        </div>
-
-        <div class="step">
-            <span>3</span>
-            <h3>Enjoy the Ride</h3>
-            <p>We pick you up on time and get you there safely.</p>
+        <!-- Navigation arrows -->
+        <div class="step-nav">
+            <button id="prev-step">&#8592;</button>
+            <button id="next-step">&#8594;</button>
         </div>
     </div>
 </section>
 
-    <br>
-    <br>
+
 
 
     <section class="quick-contact">
         <h3>Ready to Book Your Shuttle?</h3>
         <p>Contact us today to reserve your spot or learn more about our services.</p>
     </section>
-
 
     <div class="footer-links">
             <div class="footer-headings">

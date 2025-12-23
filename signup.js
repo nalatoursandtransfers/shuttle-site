@@ -59,16 +59,10 @@ if (toggle && pwd) {
     });
 }
 
-// EMAIL VERIFICATION
-import { sendEmailVerification } from 
-"https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-
-await sendEmailVerification(userCred.user);
-
+// SUCCESS: REDIRECT
 errBox.style.color = "green";
-errBox.textContent =
-    "Account created! Please verify your email before booking.";
+errBox.textContent = "Account created successfully! Redirecting...";
 
 setTimeout(() => {
     window.location.href = "login.html";
-}, 2500);
+}, 1500);

@@ -49,34 +49,74 @@ gsap.utils.toArray(".about-container").forEach(container => {
     });
 });
 
-/* ----------------- WHY CHOOSE US ----------------- */
-gsap.utils.toArray(".wcu-item").forEach((item, i) => {
-    gsap.to(item, {
-        scrollTrigger: {
-            trigger: item,
-            start: "top 70%",
-            toggleActions: "play reverse play reverse"
-        },
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        delay: i * 0.1,
-        ease: "power2.out"
-    });
-});
-
 /* ----------------- SERVICE AREAS ----------------- */
 gsap.utils.toArray(".sa-item").forEach((item, i) => {
-    gsap.to(item, {
-        scrollTrigger: {
-            trigger: item,
-            start: "top 70%",
-            toggleActions: "play reverse play reverse"
+    gsap.fromTo(
+        item,
+        {
+            opacity: 0,
+            x: -40
         },
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        delay: i * 0.1,
-        ease: "power2.out"
-    });
+        {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            delay: i * 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 70%",
+                toggleActions: "play reverse play reverse"
+            }
+        }
+    );
+});
+
+/* ----------------- WHY CHOOSE US ----------------- */
+gsap.utils.toArray(".wcu-item").forEach((item, i) => {
+    gsap.fromTo(
+        item,
+        { opacity: 0, y: 30 },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: i * 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: item,
+                start: "top 75%",
+                toggleActions: "play reverse play reverse"
+            }
+        }
+    );
+});
+
+/* ----------------- HOW IT WORKS ----------------- */
+const steps = [
+    { number: 'Step 1', title: 'Request a Booking', desc: 'Choose your service and send us your travel details.' },
+    { number: 'Step 2', title: 'Get Confirmation', desc: 'We confirm availability and pricing quickly.' },
+    { number: 'Step 3', title: 'Enjoy the Ride', desc: 'We pick you up on time and get you there safely.' }
+];
+
+let currentStep = 0;
+
+const numberBlock = document.getElementById('step-number');
+const detailsBlock = document.getElementById('step-details');
+const nextBtn = document.getElementById('next-step');
+const prevBtn = document.getElementById('prev-step');
+
+function updateStep() {
+    numberBlock.innerHTML = `<h3>${steps[currentStep].number}</h3>`;
+    detailsBlock.innerHTML = `<h3>${steps[currentStep].title}</h3><p>${steps[currentStep].desc}</p>`;
+}
+
+nextBtn.addEventListener('click', () => {
+    currentStep = (currentStep + 1) % steps.length;
+    updateStep();
+});
+
+prevBtn.addEventListener('click', () => {
+    currentStep = (currentStep - 1 + steps.length) % steps.length;
+    updateStep();
 });
