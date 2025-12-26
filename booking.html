@@ -34,67 +34,122 @@
   </nav>
 </header>
 
-    <main class="container">
-        <section class="card">
-            <h2 class="accent">GET YOUR QUOTATION</h2>
-             <p class="step-indicator">
-        Step 1 of 3: Request a Quotation
-    </p>
-            <div id="booking-error" class="error"></div>
+    <main class="booking-page">
+    <div class="booking-layout">
 
-            <label>Full Name:</label>
-<input id="name" placeholder="Your full name" required>
+        <!-- LEFT: FORM -->
+        <section class="booking-card">
 
-<label>Email Address:</label>
-<input id="email" type="email" placeholder="you@example.com" required>
+            <h2>GET YOUR QUOTATION</h2>
 
-<label>Phone Number:</label>
-<input id="phone" type="tel" placeholder="+27 7X XXX XXXX" required>
+            <div class="progress">
+                <div class="progress-bar" style="width:33%"></div>
+            </div>
 
-            <label>Service Type:</label>
-<select id="service">
-  <option value="airport">Airport Transfer</option>
-  <option value="shuttle">Shuttle Service</option>
-  <option value="tour">Tour</option>
-  <option value="corporate">Corporate Transport</option>
-</select>
+            <p class="step-label">Step 1 of 3 · Request a Quotation</p>
 
-            <label>Pickup location:</label>
+            <div class="step step-1 active">
+        <div id="booking-error" class="error"></div>
+
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input id="name" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="tel" placeholder="+27 7X XXX XXXX" required>
+        </div>
+
+        <div class="form-group">
+            <label for="service">Service Type</label>
+            <select id="service">
+                <option value="airport">Airport Transfer</option>
+                <option value="shuttle">Shuttle Service</option>
+                <option value="tour">Tour</option>
+                <option value="corporate">Corporate Transport</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="pickup">Pickup Location</label>
             <input id="pickup" placeholder="e.g., OR Tambo Airport">
-            <br>
-            <br>
-            <br>
-            <label>Dropoff location:</label>
+        </div>
+
+        <div class="form-group">
+            <label for="dropoff">Drop-off Location</label>
             <input id="dropoff" placeholder="e.g., Sandton City">
-            <br>
-            <br>
-            <br>
-            <label>Date & Time:</label>
+        </div>
+
+        <div class="form-group">
+            <label for="when">Date & Time</label>
             <input id="when" type="datetime-local">
-            <br>
-            <br>
-            <br>
-            <label>Number of Passengers:</label>
+        </div>
+
+        <div class="form-group">
+            <label for="passengers">Number of Passengers</label>
             <input id="passengers" type="number" min="1" max="15" value="1">
-            <br>
-            <br>
-            <br>
-            <label>Notes:</label>
+        </div>
+
+        <div class="form-group">
+            <label for="notes">Notes</label>
             <textarea id="notes" rows="3" placeholder="Any special requirements?"></textarea>
-            <br>
-            <br>
-            <label>Preferred Payment Method:</label>
-<select id="payment">
-  <option value="quote">Pay after quotation</option>
-  <option value="eft">EFT / Bank Transfer</option>
-  <option value="online">Online Card Payment</option>
-</select>
-<p class="small-note">
-Payment details will be shared securely after your quotation is confirmed.
-</p>
-            <button id="btn-book" class="btn">Submit Booking</button>
+        </div>
+
+        <div class="form-group">
+            <label for="payment">Preferred Payment Method</label>
+            <select id="payment">
+                <option value="quote">Pay after quotation</option>
+                <option value="eft">EFT / Bank Transfer</option>
+                <option value="online">Online Card Payment</option>
+            </select>
+
+            <p class="small-note">
+                Payment details will be shared securely after your quotation is confirmed.
+            </p>
+        </div>
+
+        <button id="btn-book" class="btn btn-primary">
+                    Request Quotation →
+                </button>
+            </div>
+
+            <div class="step step-2">
+                <h3>Quotation Summary</h3>
+                <div class="summary-box">
+                    <p><strong>Name:</strong> <span id="sum-name"></span></p>
+                    <p><strong>Email:</strong> <span id="sum-email"></span></p>
+                </div>
+                <button class="btn btn-primary" id="confirmBtn">
+                    Confirm & Send Request →
+                </button>
+            </div>
+
+            <div class="step step-3">
+                <h3>Request Sent ✅</h3>
+                <p>We’ll contact you shortly via Email or WhatsApp.</p>
+            </div>
+
         </section>
-    </main>
+
+        <!-- RIGHT: INFO -->
+        <aside class="booking-info">
+            <h3>What Happens Next?</h3>
+            <ul class="info-list">
+                <li><i class="fas fa-envelope"></i> We review your request</li>
+                <li><i class="fas fa-calculator"></i> You receive a quote</li>
+                <li><i class="fas fa-whatsapp"></i> We confirm details</li>
+                <li><i class="fas fa-check-circle"></i> No obligation</li>
+            </ul>
+        </aside>
+
+    </div>
+</main>
 
     <section class="quick-contact">
         <h3>Ready to Book Your Shuttle?</h3>
@@ -126,7 +181,6 @@ Payment details will be shared securely after your quotation is confirmed.
     </footer>
 
     <script type="module" src="app.js"></script>
-    <script type="module" src="auth-guard.js"></script>
     <script type="module" src="navbar-auth.js"></script>
 </body>
 </html>

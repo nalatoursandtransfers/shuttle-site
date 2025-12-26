@@ -16,7 +16,7 @@
 </head>
 
 
-<body>
+<body class="signup-page">
 
     <header>
   <div class="left-section">
@@ -28,37 +28,44 @@
     <a href="booking.html">Booking</a>
     <a href="vehicles.html">Our Vehicles</a>
     <a href="contact.html">Contact</a>
-    <a href="signup.html" class="user-icon"><i class="fas fa-user"></i></a>
+    
+    <!-- AUTH AREA -->
+    <div id="auth-section" class="auth-section"></div>
   </nav>
 </header>
 
-<main class="container">
+<main class="signup-container">
     <section class="card">
         <h2 class="accent">CREATE YOUR ACCOUNT</h2>
 
         <form id="signup-form">
-            <label>Your name:</label>
-            <input type="text" id="signup-name" placeholder="Full Name" required autofocus/>
-            <br>
-            <br>
-            <br>
-            <label>Email:</label>
-            <input type="email" id="signup-email" placeholder="Email" required />
-            <br>
-            <br>
-            <br>
-            <label>Please create a password:</label>
-            <div class="password-field">
-    <input type="password" id="signup-password" placeholder="Password" required />
-    <i class="fas fa-eye" id="togglePassword"></i>
-</div>
-            <br>
-            <br>
-            <label>Confirm password:</label>
-<input type="password" id="signup-confirm" placeholder="Confirm Password" required />
-<br><br>
-           <button type="submit" class="btn" id="signup-btn">Sign Up</button>
-        </form>
+
+    <div class="form-group">
+        <label for="signup-name">Your name</label>
+        <input type="text" id="signup-name" placeholder="Full Name" required />
+    </div>
+
+    <div class="form-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" placeholder="Email" required />
+    </div>
+
+    <div class="form-group">
+        <label for="signup-password">Create a password</label>
+        <div class="password-field">
+            <input type="password" id="signup-password" placeholder="Password" required />
+            <i class="fas fa-eye" id="togglePassword"></i>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="signup-confirm">Confirm password</label>
+        <input type="password" id="signup-confirm" placeholder="Confirm Password" required />
+    </div>
+
+    <button type="submit" class="btn" id="signup-btn">Sign Up</button>
+
+</form>
 
         <p id="signup-error" style="color:red; margin-top:10px;"></p>
 
@@ -99,10 +106,9 @@
 </footer>
 
 <script type="module" src="navbar-auth.js"></script>
+<script type="module" src="signup.js"></script>
 </body>
 
-<!-- ------------------------ SIGNUP LOGIC ------------------------- -->
-<script type="module" src="signup.js"></script>
 
 
 </html>

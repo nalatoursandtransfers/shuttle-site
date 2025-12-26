@@ -1,6 +1,14 @@
-import { auth, db } from "./firebase.js";
 import { createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { auth } from "./firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+// If already logged in, prevent access to signup page
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        window.location.href = "index.html"; // redirect logged-in users
+    }
+});
 
 const form = document.getElementById("signup-form");
 const errBox = document.getElementById("signup-error");
@@ -59,10 +67,9 @@ if (toggle && pwd) {
     });
 }
 
-// SUCCESS: REDIRECT
 errBox.style.color = "green";
 errBox.textContent = "Account created successfully! Redirecting...";
 
 setTimeout(() => {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }, 1500);

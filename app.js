@@ -93,7 +93,7 @@ gsap.utils.toArray(".wcu-item").forEach((item, i) => {
 });
 
 /* ----------------- HOW IT WORKS ----------------- */
-const steps = [
+const howSteps = [
     {
         number: 'Step 1',
         title: 'Request a Booking',
@@ -111,18 +111,18 @@ const steps = [
     }
 ];
 
-let currentStep = 0;
+let howCurrentStep = 0;
 
-const numberBlock = document.getElementById('step-number');
-const detailsBlock = document.getElementById('step-details');
-const nextBtn = document.getElementById('next-step');
-const prevBtn = document.getElementById('prev-step');
+const howNumberBlock = document.getElementById('step-number');
+const howDetailsBlock = document.getElementById('step-details');
+const howNextBtn = document.getElementById('next-step');
+const howPrevBtn = document.getElementById('prev-step');
 
 function animateStepChange(direction = 1) {
     const tl = gsap.timeline();
 
     // Animate OUT
-    tl.to([numberBlock, detailsBlock], {
+    tl.to([howNumberBlock, howDetailsBlock], {
         opacity: 0,
         x: direction * -40,
         duration: 0.85,
@@ -131,16 +131,16 @@ function animateStepChange(direction = 1) {
 
     // Update content
     tl.add(() => {
-        numberBlock.innerHTML = `<h3>${steps[currentStep].number}</h3>`;
-        detailsBlock.innerHTML = `
-            <h3>${steps[currentStep].title}</h3>
-            <p>${steps[currentStep].desc}</p>
+        howNumberBlock.innerHTML = `<h3>${howSteps[howCurrentStep].number}</h3>`;
+        howDetailsBlock.innerHTML = `
+            <h3>${howSteps[howCurrentStep].title}</h3>
+            <p>${howSteps[howCurrentStep].desc}</p>
         `;
     });
 
     // Animate IN
     tl.fromTo(
-        [numberBlock, detailsBlock],
+        [howNumberBlock, howDetailsBlock],
         { opacity: 0, x: direction * 40 },
         {
             opacity: 1,
@@ -151,12 +151,76 @@ function animateStepChange(direction = 1) {
     );
 }
 
-nextBtn.addEventListener('click', () => {
-    currentStep = (currentStep + 1) % steps.length;
+howNextBtn?.addEventListener('click', () => {
+    howCurrentStep = (howCurrentStep + 1) % howSteps.length;
     animateStepChange(1);
 });
 
-prevBtn.addEventListener('click', () => {
-    currentStep = (currentStep - 1 + steps.length) % steps.length;
+howPrevBtn?.addEventListener('click', () => {
+    howCurrentStep = (howCurrentStep - 1 + howSteps.length) % howSteps.length;
     animateStepChange(-1);
+});
+
+/* ----------------- CREATE A QUOTATION ----------------- */
+/* Card entrance */
+gsap.to(".booking-card", {
+    scrollTrigger: {
+        trigger: ".booking-card",
+        start: "top 80%"
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power3.out"
+});
+
+/* Form fields stagger */
+gsap.to(".form-group", {
+    scrollTrigger: {
+        trigger: ".booking-card",
+        start: "top 75%"
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.08,
+    delay: 0.2,
+    ease: "power2.out"
+});
+
+/* Button entrance (last, intentional) */
+gsap.to(".btn-primary", {
+    scrollTrigger: {
+        trigger: ".booking-card",
+        start: "top 75%"
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    delay: 0.8,
+    ease: "power2.out"
+});
+
+setTimeout(() => {
+    document.querySelector(".booking-card")?.style.setProperty("opacity", "1");
+}, 1000);
+
+const steps = document.querySelectorAll(".step");
+const progressBar = document.querySelector(".progress-bar");
+const stepLabel = document.querySelector(".step-label");
+const nextBtn = document.getElementById("btn-book");
+
+function goToStep(stepIndex) {
+    steps.forEach((step, i) => {
+        step.classList.toggle("active", i === stepIndex);
+    });
+
+    progressBar.style.width = `${(stepIndex + 1) * 33}%`;
+    stepLabel.textContent = `Step ${stepIndex + 1} of 3`;
+}
+
+nextBtn.addEventListener("click", () => {
+    document.getElementById("sum-name").textContent = name.value;
+    document.getElementById("sum-email").textContent = email.value;
+    goToStep(1);
 });

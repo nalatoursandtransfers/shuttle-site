@@ -1,353 +1,151 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/png" href="images/favicon.png"/>
-    <title>NalaTours & Transfers | Our Vehicles</title>
+<link rel="icon" type="image/png" href="images/favicon.png"/>
+<title>NalaTours & Transfers | Our Vehicles</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
+<body class="vehicles-page">
 
-
-<body>
-
-    <!--HEADER SECTION WITH NAVIGATION-->
-    <header>
+<header>
   <div class="left-section">
-    <img src="images/favicon.png" class="logo" alt="NalaTours & Transfers Logo" />
+    <img src="images/favicon.png" class="logo" alt="NalaTours Logo"/>
     <h1>NalaTours & Transfers (Sandton)</h1>
   </div>
   <nav>
     <a href="index.html">Home</a>
     <a href="booking.html">Booking</a>
-    <a href="vehicles.html">Our Vehicles</a>
+    <a href="vehicles.html" class="active">Our Vehicles</a>
     <a href="contact.html">Contact</a>
     <a href="signup.html" class="user-icon"><i class="fas fa-user"></i></a>
   </nav>
 </header>
 
-    <main class="container">
-        <section class="card">
-            <h2 class="accent">OUR VEHICLES</h2>
-            <div class="carousel-vehicles" mask>
-                 <article>
-        <img src="images/number5.jpg" alt="Mercedes-Benz C180 Sedan" loading="lazy">
-        <h2>Mercedes-Benz C180</h2>
+<main class="vehicles-container">
 
-        <div>
-            <p>Luxury executive sedan offering a smooth, comfortable ride for private and business travel.</p>
-
-            <ul class="vehicle-specs">
-                <li><i class="fas fa-user"></i> Up to 3 passengers</li>
-                <li><i class="fas fa-suitcase"></i> 2–3 suitcases</li>
-                <li><i class="fas fa-briefcase"></i> Business & airport transfers</li>
-            </ul>
-
-            <a href="booking.html">Book this vehicle</a>
-        </div>
-    </article>
-
-    <!-- HYUNDAI H1 -->
-    <article>
-        <img src="images/number2.jpg" alt="Hyundai H1 Shuttle" loading="lazy">
-        <h2>Hyundai H1</h2>
-
-        <div>
-            <p>Spacious and reliable shuttle ideal for group transfers, family trips, and tours.</p>
-
-            <ul class="vehicle-specs">
-                <li><i class="fas fa-user"></i> Up to 8 passengers</li>
-                <li><i class="fas fa-suitcase"></i> Large luggage capacity</li>
-                <li><i class="fas fa-users"></i> Group travel & tours</li>
-            </ul>
-
-            <a href="booking.html">Book this vehicle</a>
-        </div>
-    </article>
-
-    <!-- HYUNDAI STARIA -->
-    <article>
-        <img src="images/number3.jpg" alt="Hyundai Staria Luxury Van" loading="lazy">
-        <h2>Hyundai Staria</h2>
-
-        <div>
-            <p>Premium people carrier with modern styling, offering comfort for longer journeys.</p>
-
-            <ul class="vehicle-specs">
-                <li><i class="fas fa-user"></i> Up to 7 passengers</li>
-                <li><i class="fas fa-suitcase"></i> Medium to large luggage</li>
-                <li><i class="fas fa-star"></i> Executive group transfers</li>
-            </ul>
-
-            <a href="booking.html">Book this vehicle</a>
-        </div>
-    </article>
-
-    <!-- REPEAT FOR SMOOTH CAROUSEL LOOP -->
-
-    <article>
-        <img src="images/number5.jpg" alt="Mercedes-Benz C180 Sedan" loading="lazy">
-        <h2>Mercedes-Benz C180</h2>
-
-        <div>
-            <p>Luxury executive sedan offering a smooth, comfortable ride for private and business travel.</p>
-
-            <ul class="vehicle-specs">
-                <li><i class="fas fa-user"></i> Up to 3 passengers</li>
-                <li><i class="fas fa-suitcase"></i> 2–3 suitcases</li>
-                <li><i class="fas fa-briefcase"></i> Business & airport transfers</li>
-            </ul>
-
-            <a href="booking.html">Book this vehicle</a>
-        </div>
-    </article>
-
-    <article>
-        <img src="images/number2.jpg" alt="Hyundai H1 Shuttle" loading="lazy">
-        <h2>Hyundai H1</h2>
-
-        <div>
-            <p>Spacious and reliable shuttle ideal for group transfers, family trips, and tours.</p>
-
-            <ul class="vehicle-specs">
-                <li><i class="fas fa-user"></i> Up to 8 passengers</li>
-                <li><i class="fas fa-suitcase"></i> Large luggage capacity</li>
-                <li><i class="fas fa-users"></i> Group travel & tours</li>
-            </ul>
-
-            <a href="booking.html">Book this vehicle</a>
-        </div>
-    </article>
-
-    <article>
-        <img src="images/number3.jpg" alt="Hyundai Staria Luxury Van" loading="lazy">
-        <h2>Hyundai Staria</h2>
-
-        <div>
-            <p>Premium people carrier with modern styling, offering comfort for longer journeys.</p>
-
-            <ul class="vehicle-specs">
-                <li><i class="fas fa-user"></i> Up to 7 passengers</li>
-                <li><i class="fas fa-suitcase"></i> Medium to large luggage</li>
-                <li><i class="fas fa-star"></i> Executive group transfers</li>
-            </ul>
-
-            <a href="booking.html">Book this vehicle</a>
-        </div>
-    </article>
-            </div>
-        </section>
-
-        <section class="fleet-benefits">
-    <h3>Why Choose Our Vehicles</h3>
-    <ul>
-        <li><i class="fas fa-check-circle"></i> Professionally maintained & serviced</li>
-        <li><i class="fas fa-check-circle"></i> Experienced, licensed drivers</li>
-        <li><i class="fas fa-check-circle"></i> Comfortable & air-conditioned</li>
-        <li><i class="fas fa-check-circle"></i> Suitable for airport, tours & events</li>
-    </ul>
-</section>
-
-        <style>
-           .carousel-vehicles {
-    --items: 6;
-    --carousel-vehicles-duration: 40s;
-}
-
-/* Only apply main layout on wider screens */
-@media (min-width: 1400px) {
-
-    .carousel-vehicles {
-        --carousel-vehicles-width: min(80vw, 800px);
-        --carousel-vehicles-item-width: 280px;
-        --carousel-vehicles-item-height: 450px;
-        --carousel-vehicles-item-gap: 2rem;
-
-        --clr-cta: rgb(0, 132, 209);
-
-        position: relative;
-        width: 100%;
-max-width: 1200px;
-margin-inline: auto;
-position: relative;
-overflow: hidden;
-        height: var(--carousel-vehicles-item-height);
-        overflow: hidden; /* clip */
-    }
-
-    /* Mask fade effect */
-    .carousel-vehicles[mask] {
-        mask-image: linear-gradient(
-            to right,
-            transparent,
-            black 10% 90%,
-            transparent
-        );
-    }
-
-    /* Reverse scrolling if needed */
-    .carousel-vehicles[reverse] > article {
-        animation-direction: reverse;
-    }
-
-    /* Pause on hover */
-    .carousel-vehicles:hover > article {
-        animation-play-state: paused;
-    }
-
-    /* Article styling */
-    .carousel-vehicles > article {
-        position: absolute;
-        top: 0;
-        left: calc((100% + var(--carousel-vehicles-item-gap)));
-        width: var(--carousel-vehicles-item-width);
-        height: var(--carousel-vehicles-item-height);
-
-        display: grid;
-        grid-template-rows: 200px auto 1fr auto;
-        gap: 0.25rem;
-
-        padding-bottom: 1rem;
-        border-radius: 10px;
-
-        background: #D4B177;
-        color: #314158;
-        border: 1px solid rgba(0, 0, 0, 0.25);
-
-        will-change: transform;
-        animation-name: marquee;
-        animation-duration: var(--carousel-vehicles-duration);
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-
-        /* offset animation start by index */
-        animation-delay: calc(
-            var(--carousel-vehicles-duration) / var(--items) * var(--i) * -1
-        );
-    }
-
-    /* Assign indexes (i) to each */
-    .carousel-vehicles > article:nth-child(1) { --i: 0; }
-    .carousel-vehicles > article:nth-child(2) { --i: 1; }
-    .carousel-vehicles > article:nth-child(3) { --i: 2; }
-    .carousel-vehicles > article:nth-child(4) { --i: 3; }
-    .carousel-vehicles > article:nth-child(5) { --i: 4; }
-    .carousel-vehicles > article:nth-child(6) { --i: 5; }
-
-    /* Image styling */
-    .carousel-vehicles img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px 10px 0 0;
-    }
-
-    .carousel-vehicles > article > *:not(img) {
-        padding: 0 1rem;
-    }
-
-    .carousel-vehicles > article > div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    font-size: 0.8rem;
-}
-
-.carousel-vehicles > article > div a {
-    margin-top: auto;
-    align-self: flex-start;
-}
-
-    .carousel-vehicles > article h2 {
-        font-size: 1.2rem;
-        font-weight: 300;
-        padding: 0.75rem 0 0.25rem;
-        margin: 0;
-    }
-
-    .carousel-vehicles > article p {
-        margin: 0;
-    }
-
-    .carousel-vehicles > article a {
-        text-decoration: none;
-        text-transform: lowercase;
-        border: 1px solid var(--clr-cta);
-        color: var(--clr-cta);
-        border-radius: 3px;
-        padding: 0.25rem 0.5rem;
-
-        place-self: start;
-        transition: 150ms ease-in-out;
-    }
-
-    .carousel-vehicles > article a:hover,
-    .carousel-vehicles > article a:focus-visible {
-        background-color: var(--clr-cta);
-        color: white;
-        outline: none;
-    }
-
-    /* Animation keyframes */
-    @keyframes marquee {
-        100% {
-            transform: translateX(
-                calc(
-                    (var(--items) * 
-                    (var(--carousel-vehicles-item-width) + var(--carousel-vehicles-item-gap))) 
-                    * -1
-                )
-            );
-        }
-    }
-}
-
-/* Container fix */
-/* .container {
-    height: fit-content;
-}  */
-
-    </style>
-    </main>
-
-    <section class="quick-contact">
-        <h3>Ready to Book Your Shuttle?</h3>
-        <p>Contact us today to reserve your spot or learn more about our services.</p>
-    </section>
-
-
-    <div class="footer-links">
-            <div class="footer-headings">
-            <a href="index.html">Home</a>
-            <a href="booking.html">Booking</a>
-            <a href="vehicles.html">Our Vehicles</a>
-            <a href="contact.html">Contact</a>
-            <a href="signup.html">Sign Up</a>
-        </div>
-
-        <div class="footer-icons">
-            <a href="index.html"><i class="fas fa-home"></i></a>
-            <a href="booking.html"><i class="fas fa-calendar-check"></i></a>
-            <a href="vehicles.html"><i class="fas fa-car"></i></a>
-            <a href="contact.html"><i class="fas fa-phone"></i></a>
-            <a href="signup.html"><i class="fas fa-user"></i></a>
-        </div>
+  <div class="vehicles-grid">
+    <h2 class="page-title">OUR VEHICLES</h2>
+    <!-- VEHICLE CARD -->
+    <div class="vehicle-card">
+      <div class="vehicle-image-wrapper">
+    <img src="images/number5.jpg" alt="Mercedes-Benz C180 Sedan" class="vehicle-img">
+    <!-- <div class="vehicle-overlay">
+        <span>View Details</span>
+    </div> -->
+</div>
+      <div class="vehicle-info">
+        <h3 class="vehicle-title">Mercedes-Benz C180</h3>
+        <p class="vehicle-desc">Luxury executive sedan offering a smooth, comfortable ride for private and business travel.</p>
+        <ul class="vehicle-specs">
+          <li><i class="fas fa-user"></i> Up to 3 passengers</li>
+          <li><i class="fas fa-suitcase"></i> 2–3 suitcases</li>
+          <li><i class="fas fa-briefcase"></i> Business & airport transfers</li>
+        </ul>
+        <a href="booking.html" class="book-btn">Book this vehicle</a>
+      </div>
     </div>
 
+    <!-- HYUNDAI H1 -->
+    <div class="vehicle-card">
+      <div class="vehicle-image-wrapper">
+    <img src="images/number2.jpg" alt="Mercedes-Benz C180 Sedan" class="vehicle-img">
+    <!-- <div class="vehicle-overlay">
+        <span>View Details</span>
+    </div> -->
+</div>
+      <div class="vehicle-info">
+        <h3 class="vehicle-title">Hyundai H1</h3>
+        <p class="vehicle-desc">Spacious and reliable shuttle ideal for group transfers, family trips, and tours.</p>
+        <ul class="vehicle-specs">
+          <li><i class="fas fa-user"></i> Up to 8 passengers</li>
+          <li><i class="fas fa-suitcase"></i> Large luggage capacity</li>
+          <li><i class="fas fa-users"></i> Group travel & tours</li>
+        </ul>
+        <a href="booking.html" class="book-btn">Book this vehicle</a>
+      </div>
+    </div>
 
-    <footer>
-        <p class="footer-copy">©2025 NalaTours & Transfers. All Rights Reserved.<br>Website created and developed by Amahle Khoza</p>
-    </footer>
+    <!-- HYUNDAI STARIA -->
+    <div class="vehicle-card">
+      <div class="vehicle-image-wrapper">
+    <img src="images/number3.jpg" alt="Mercedes-Benz C180 Sedan" class="vehicle-img">
+    <!-- <div class="vehicle-overlay">
+        <span>View Details</span>
+    </div> -->
+</div>
+      <div class="vehicle-info">
+        <h3 class="vehicle-title">Hyundai Staria</h3>
+        <p class="vehicle-desc">Premium people carrier with modern styling, offering comfort for longer journeys.</p>
+        <ul class="vehicle-specs">
+          <li><i class="fas fa-user"></i> Up to 7 passengers</li>
+          <li><i class="fas fa-suitcase"></i> Medium to large luggage</li>
+          <li><i class="fas fa-star"></i> Executive group transfers</li>
+        </ul>
+        <a href="booking.html" class="book-btn">Book this vehicle</a>
+      </div>
+    </div>
+  </div>
 
-    <script type="module" src="app.js"></script>
-    <script type="module" src="navbar-auth.js"></script>
+  <section class="fleet-benefits">
+    <h3>WHY CHOOSE OUR VEHICLES</h3>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> Professionally maintained & serviced</li>
+      <li><i class="fas fa-check-circle"></i> Experienced, licensed drivers</li>
+      <li><i class="fas fa-check-circle"></i> Comfortable & air-conditioned</li>
+      <li><i class="fas fa-check-circle"></i> Suitable for airport, tours & events</li>
+    </ul>
+  </section>
+</main>
+
+<section class="quick-contact">
+  <h3>Ready to Book Your Shuttle?</h3>
+  <p>Contact us today to reserve your spot or learn more about our services.</p>
+</section>
+
+<div class="footer-links">
+  <div class="footer-headings">
+    <a href="index.html">Home</a>
+    <a href="booking.html">Booking</a>
+    <a href="vehicles.html">Our Vehicles</a>
+    <a href="contact.html">Contact</a>
+    <a href="signup.html">Sign Up</a>
+  </div>
+  <div class="footer-icons">
+    <a href="index.html"><i class="fas fa-home"></i></a>
+    <a href="booking.html"><i class="fas fa-calendar-check"></i></a>
+    <a href="vehicles.html"><i class="fas fa-car"></i></a>
+    <a href="contact.html"><i class="fas fa-phone"></i></a>
+    <a href="signup.html"><i class="fas fa-user"></i></a>
+  </div>
+</div>
+
+<footer>
+  <p class="footer-copy">©2025 NalaTours & Transfers. All Rights Reserved.<br>Website created and developed by Amahle Khoza</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+<script type="module" src="navbar-auth.js"></script>
+
+<script>
+  gsap.from(".vehicle-card", {
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    stagger: 0.2,
+    scrollTrigger: {
+      trigger: ".vehicles-grid",
+      start: "top 80%",
+    }
+  });
+</script>
 </body>
 </html>
