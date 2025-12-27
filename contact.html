@@ -154,5 +154,45 @@
 
     <script type="module" src="app.js"></script>
     <script type="module" src="navbar-auth.js"></script>
+    <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("lvx8fOpc4hMxJgMlj"); // Replace with your EmailJS Public Key
+  })();
+</script>
+
+<script>
+const btn = document.getElementById("btn-contact");
+const status = document.getElementById("contact-status");
+
+btn.addEventListener("click", function () {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  if (!name || !email || !message) {
+    status.textContent = "Please fill in all fields.";
+    status.style.color = "red";
+    return;
+  }
+
+  emailjs.send("service_ln8owo1", "template_hxl87xe", {
+    name: name,
+    email: email,
+    message: message,
+    reply_to: email
+  })
+  .then(() => {
+    status.textContent = "Message sent successfully!";
+    status.style.color = "green";
+  })
+  .catch(() => {
+    status.textContent = "Failed to send message. Please try again.";
+    status.style.color = "red";
+  });
+});
+</script>
+
 </body>
 </html>

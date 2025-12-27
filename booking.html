@@ -182,6 +182,48 @@
 
     <script type="module" src="app.js"></script>
     <script type="module" src="navbar-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS with your public key
+  emailjs.init("lvx8fOpc4hMxJgMlj"); // <-- replace with your EmailJS Public Key
+
+  const confirmBtn = document.getElementById("confirmBtn");
+  const bookingError = document.getElementById("booking-error");
+
+  confirmBtn.addEventListener("click", function () {
+    // Collect all form data
+    const data = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      service: document.getElementById("service").value,
+      pickup: document.getElementById("pickup").value,
+      dropoff: document.getElementById("dropoff").value,
+      when: document.getElementById("when").value,
+      passengers: document.getElementById("passengers").value,
+      payment: document.getElementById("payment").value,
+      notes: document.getElementById("notes").value
+    };
+
+    // Simple validation
+    if (!data.name || !data.email || !data.phone) {
+      bookingError.textContent = "Please fill in all required fields.";
+      return;
+    }
+
+    // Send the email using EmailJS
+    emailjs.send("service_ln8owo1", "template_it61cd4", data) // <-- replace with your Service ID & Template ID
+      .then(() => {
+        // Move to Step 3: Request Sent
+        document.querySelector(".step-1").classList.remove("active");
+        document.querySelector(".step-2").classList.remove("active");
+        document.querySelector(".step-3").classList.add("active");
+      })
+      .catch(() => {
+        bookingError.textContent = "Failed to send request. Please try again.";
+      });
+  });
+</script>
 </body>
 </html>
 
