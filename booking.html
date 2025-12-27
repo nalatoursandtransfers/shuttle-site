@@ -182,40 +182,61 @@
 
     <script type="module" src="app.js"></script>
     <script type="module" src="navbar-auth.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  // Initialize EmailJS with your public key
   emailjs.init("lvx8fOpc4hMxJgMlj"); // <-- replace with your EmailJS Public Key
 
+  const btnBook = document.getElementById("btn-book");
   const confirmBtn = document.getElementById("confirmBtn");
   const bookingError = document.getElementById("booking-error");
 
-  confirmBtn.addEventListener("click", function () {
-    // Collect all form data
-    const data = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      service: document.getElementById("service").value,
-      pickup: document.getElementById("pickup").value,
-      dropoff: document.getElementById("dropoff").value,
-      when: document.getElementById("when").value,
-      passengers: document.getElementById("passengers").value,
-      payment: document.getElementById("payment").value,
-      notes: document.getElementById("notes").value
-    };
+  btnBook.addEventListener("click", function () {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const service = document.getElementById("service").value;
+    const pickup = document.getElementById("pickup").value;
+    const dropoff = document.getElementById("dropoff").value;
+    const when = document.getElementById("when").value;
+    const passengers = document.getElementById("passengers").value;
+    const payment = document.getElementById("payment").value;
+    const notes = document.getElementById("notes").value;
 
-    // Simple validation
-    if (!data.name || !data.email || !data.phone) {
+    if (!name || !email || !phone) {
       bookingError.textContent = "Please fill in all required fields.";
       return;
     }
 
-    // Send the email using EmailJS
-    emailjs.send("service_ln8owo1", "template_it61cd4", data) // <-- replace with your Service ID & Template ID
+    // Fill summary in Step 2
+    const summaryHTML = `
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>Service:</strong> ${service}</p>
+      <p><strong>Pickup:</strong> ${pickup}</p>
+      <p><strong>Drop-off:</strong> ${dropoff}</p>
+      <p><strong>Date & Time:</strong> ${when}</p>
+      <p><strong>Passengers:</strong> ${passengers}</p>
+      <p><strong>Payment Preference:</strong> ${payment}</p>
+      <p><strong>Notes:</strong> ${notes}</p>
+    `;
+    document.querySelector(".summary-box").innerHTML = summaryHTML;
+
+    // Move to Step 2
+    document.querySelector(".step-1").classList.remove("active");
+    document.querySelector(".step-2").classList.add("active");
+
+    // Save data for sending
+    window.bookingData = { name, email, phone, service, pickup, dropoff, when, passengers, payment, notes };
+  });
+
+  confirmBtn.addEventListener("click", function () {
+    if (!window.bookingData) return;
+
+    emailjs.send("service_ln8owo1", "template_it61cd4", window.bookingData) // <-- Service ID & Template ID
       .then(() => {
-        // Move to Step 3: Request Sent
-        document.querySelector(".step-1").classList.remove("active");
         document.querySelector(".step-2").classList.remove("active");
         document.querySelector(".step-3").classList.add("active");
       })
