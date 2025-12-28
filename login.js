@@ -18,11 +18,11 @@ loginForm.addEventListener("submit", async (e) => {
   try {
     const cred = await signInWithEmailAndPassword(auth, email, password);
 
-    if (!cred.user.emailVerified) {
-      await signOut(auth);
-      loginMsg.textContent = "Please verify your email before logging in.";
-      return;
-    }
+    // if (!cred.user.emailVerified) {
+    //   await signOut(auth);
+    //   loginMsg.textContent = "Please verify your email before logging in.";
+    //   return;
+    // }
 
     // Success: redirect
     window.location.href = "index.html";
