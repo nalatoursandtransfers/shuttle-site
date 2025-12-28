@@ -1,3 +1,6 @@
+import { auth, db } from "./firebase.js";
+import { addDoc, collection } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
 gsap.registerPlugin(ScrollTrigger);
 
 /* ----------------- CAROUSEL ----------------- */
@@ -210,17 +213,67 @@ const progressBar = document.querySelector(".progress-bar");
 const stepLabel = document.querySelector(".step-label");
 const nextBtn = document.getElementById("btn-book");
 
+// Helper to switch steps
 function goToStep(stepIndex) {
-    steps.forEach((step, i) => {
-        step.classList.toggle("active", i === stepIndex);
-    });
-
+    steps.forEach((step, i) => step.classList.toggle("active", i === stepIndex));
     progressBar.style.width = `${(stepIndex + 1) * 33}%`;
     stepLabel.textContent = `Step ${stepIndex + 1} of 3`;
 }
 
-nextBtn.addEventListener("click", () => {
-    document.getElementById("sum-name").textContent = name.value;
-    document.getElementById("sum-email").textContent = email.value;
-    goToStep(1);
+nextBtn.addEventListener("click", async () => {
+    // Ensure user is logged in
+    if (!auth.currentUser) {
+        alert("You must be logged in to request a booking.");
+        return;
+    }
+
+    // Get values from form
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const service = document.getElementById("service").value;
+    const pickup = document.getElementById("pickup").value.trim();
+    const dropoff = document.getElementById("dropoff").value.trim();
+    const date = document.getElementById("when").value;
+    const passengers = document.getElementById("passengers").value;
+    const notes = document.getElementById("notes").value.trim();
+
+    // Basic validation
+    if (!name || !email || !service || !pickup || !dropoff || !date) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    try {
+        // Save booking to Firestore
+        await addDoc(collection(db, "bookings"), {
+            userId: auth.currentUser.uid,
+            name,
+            email,
+            service,
+            pickup,
+            dropoff,
+            date,
+            passengers,
+            notes,
+            createdAt: new Date()
+        });
+
+        console.log("Booking saved successfully!");
+
+        // Fill summary
+        document.getElementById("sum-name").textContent = name;
+        document.getElementById("sum-email").textContent = email;
+
+        // Step 2: Show summary
+        goToStep(1);
+
+        // Optional: Automatically go to step 3 after 3 seconds
+        setTimeout(() => {
+            goToStep(2);
+        }, 3000);
+
+    } catch (err) {
+        console.error("Error saving booking:", err);
+        alert("There was an error saving your booking. Please try again.");
+    }
 });

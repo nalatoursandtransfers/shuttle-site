@@ -4,25 +4,28 @@ import { onAuthStateChanged, signOut } from
 
 const authSection = document.getElementById("auth-section");
 
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        authSection.innerHTML = `
-            <span class="user-greeting">
-                Hi, ${user.displayName || "User"}
-            </span>
-            <button id="logoutBtn" class="btn small">Logout</button>
-        `;
+if (authSection) {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            authSection.innerHTML = `
+                <span class="user-greeting">
+                    Hi, ${user.displayName || "User"}
+                </span>
+                <a href="profile.html" class="btn small">Profile</a>
+                <button id="logoutBtn" class="btn small">Logout</button>
+            `;
 
-        document.getElementById("logoutBtn").addEventListener("click", async () => {
-            await signOut(auth);
-            window.location.href = "index.html";
-        });
-    } else {
-        authSection.innerHTML = `
-            <a href="signup.html"><i class="fas fa-user"></i></a>
-        `;
-    }
-});
+            document.getElementById("logoutBtn").addEventListener("click", async () => {
+                await signOut(auth);
+                window.location.href = "index.html";
+            });
+        } else {
+            authSection.innerHTML = `
+                <a href="signup.html"><i class="fas fa-user"></i></a>
+            `;
+        }
+    });
+}
 
 // Get all nav links
   const navLinks = document.querySelectorAll('header nav a');

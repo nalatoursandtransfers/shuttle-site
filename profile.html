@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/png" href="images/favicon.png"/>
+  <title>NalaTours & Transfers | Profile</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="left-section">
+    <img src="images/favicon.png" class="logo" alt="NalaTours & Transfers Logo" />
+    <h1>NalaTours & Transfers (Sandton)</h1>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="booking.html">Booking</a>
+    <a href="vehicles.html">Our Vehicles</a>
+    <a href="contact.html">Contact</a>
+    <div id="auth-section" class="auth-section"></div>
+  </nav>
+</header>
+
+<main class="container profile-page">
+  <section class="card profile-card">
+    <h2 class="accent">Your Profile</h2>
+    <div id="profile-info">
+      <p><strong>Name:</strong> <span id="profile-name"></span></p>
+      <p><strong>Email:</strong> <span id="profile-email"></span></p>
+      <button id="edit-profile" class="btn">Edit Profile</button>
+    </div>
+
+    <div id="edit-form-container" style="display:none;">
+      <h3>Edit Your Details</h3>
+      <form id="edit-profile-form">
+        <input type="text" id="edit-name" placeholder="Name" required>
+        <input type="email" id="edit-email" placeholder="Email" required>
+        <button type="submit" class="btn">Save Changes</button>
+        <button type="button" id="cancel-edit" class="btn secondary">Cancel</button>
+      </form>
+      <p id="edit-msg" style="color: green;"></p>
+    </div>
+  </section>
+
+  <section class="card bookings-card">
+    <h2 class="accent">Your Bookings</h2>
+    <div id="bookings-list">
+      <p>Loading your bookings...</p>
+    </div>
+  </section>
+</main>
+
+<section class="quick-contact">
+  <h3>Ready to Book Your Shuttle?</h3>
+  <p>Contact us today to reserve your spot or learn more about our services.</p>
+</section>
+
+<div class="footer-links">
+  <div class="footer-headings">
+    <a href="index.html">Home</a>
+    <a href="booking.html">Booking</a>
+    <a href="vehicles.html">Our Vehicles</a>
+    <a href="contact.html">Contact</a>
+    <a href="signup.html">Sign Up</a>
+  </div>
+
+  <div class="footer-icons">
+    <a href="index.html"><i class="fas fa-home"></i></a>
+    <a href="booking.html"><i class="fas fa-calendar-check"></i></a>
+    <a href="vehicles.html"><i class="fas fa-car"></i></a>
+    <a href="contact.html"><i class="fas fa-phone"></i></a>
+    <a href="signup.html"><i class="fas fa-user"></i></a>
+  </div>
+</div>
+
+<footer>
+  <p class="footer-copy">©2025 NalaTours & Transfers. All Rights Reserved.<br>Website created and developed by Amahle Khoza</p>
+</footer>
+
+<script type="module" src="navbar-auth.js"></script>
+<script type="module" src="profile.js"></script>
+
+</body>
+</html>

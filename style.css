@@ -133,6 +133,7 @@ padding-top: 2px;
     margin: 0 auto;
     height: fit-content;
     padding: 150px 20px 100px;
+    margin-top: 200px;
 }
 
 /* ===== BUTTONS ===== */
@@ -163,6 +164,7 @@ padding-top: 2px;
   padding: 30px;
   margin-bottom: 35px;
   color: var(--text-light);
+  margin-top: 70px;
 }
 
 .card h2 {
@@ -679,7 +681,6 @@ footer {
     flex-direction: column;
     gap: 6px;
     margin-bottom: 22px;
-    opacity: 0;
     transform: translateY(20px);
 }
 
@@ -1243,8 +1244,7 @@ textarea::placeholder {
     }
 }
 
-
-/* ===== SIGN UP PAGE ===== */
+/* ===== SIGN UP PAGE =====*/
 /* layout */
 .signup-container {
     max-width: 900px;
@@ -1396,7 +1396,7 @@ textarea::placeholder {
 }
 
 
-
+/* ===== PROFILE PAGE ===== */
 .icon-link {
     font-size: 22px; 
     color: #ffffff; 
@@ -1409,11 +1409,21 @@ textarea::placeholder {
 }
 
 
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
+.profile-card, .bookings-card {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-
-
-
-
-
-
+.booking-item {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}

@@ -16,7 +16,7 @@
 <header>
   <div class="left-section">
     <img src="images/favicon.png" class="logo" alt="NalaTours & Transfers Logo" />
-    <h1>NalaTours & Transfers (Sandton)</h1>
+    <h1>NALATOURS & TRANSFERS (SANDTON)</h1>
   </div>
   <nav>
     <a href="index.html">Home</a>
@@ -34,9 +34,13 @@
     <p id="login-msg" style="color: var(--accent); text-align:center;"></p>
 
             <form id="login-form">
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" placeholder="Password" required>
+                <input type="email" id="email" placeholder="Email" required autocomplete="email">
+                <div class="password-field">
+    <input type="password" id="password" placeholder="Password" required autocomplete="current-password" />
+    <i class="fas fa-eye" id="togglePassword"></i>
+</div>
                 <button type="submit" class="btn">Login</button>
+                <p><a href="#" onclick="resetPassword()">Forgot password?</a></p>
             </form>
     </section>
 </main>
@@ -69,9 +73,8 @@
 </footer>
 
 <script type="module" src="navbar-auth.js"></script>
-</body>
-
 <script type="module" src="login.js"></script>
+</body>
 
 
 </html>
