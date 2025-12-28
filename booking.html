@@ -125,6 +125,7 @@
                     <p><strong>Name:</strong> <span id="sum-name"></span></p>
                     <p><strong>Email:</strong> <span id="sum-email"></span></p>
                 </div>
+                <button class="btn btn-secondary" id="backBtn">← Back</button>
                 <button class="btn btn-primary" id="confirmBtn">
                     Confirm & Send Request →
                 </button>
@@ -190,6 +191,7 @@
 
   const btnBook = document.getElementById("btn-book");
   const confirmBtn = document.getElementById("confirmBtn");
+  const backBtn = document.getElementById("backBtn");
   const bookingError = document.getElementById("booking-error");
 
   btnBook.addEventListener("click", function () {
@@ -209,7 +211,7 @@
       return;
     }
 
-    // Fill summary in Step 2
+    // Fill summary
     const summaryHTML = `
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
@@ -224,7 +226,7 @@
     `;
     document.querySelector(".summary-box").innerHTML = summaryHTML;
 
-    // Move to Step 2
+    // Show Step 2
     document.querySelector(".step-1").classList.remove("active");
     document.querySelector(".step-2").classList.add("active");
 
@@ -232,10 +234,11 @@
     window.bookingData = { name, email, phone, service, pickup, dropoff, when, passengers, payment, notes };
   });
 
+  // Confirm & Send
   confirmBtn.addEventListener("click", function () {
     if (!window.bookingData) return;
 
-    emailjs.send("service_ln8owo1", "template_it61cd4", window.bookingData) // <-- Service ID & Template ID
+    emailjs.send("service_ln8owo1", "template_it61cd4", window.bookingData)
       .then(() => {
         document.querySelector(".step-2").classList.remove("active");
         document.querySelector(".step-3").classList.add("active");
@@ -244,7 +247,16 @@
         bookingError.textContent = "Failed to send request. Please try again.";
       });
   });
+
+  // Back button
+  backBtn.addEventListener("click", function () {
+    document.querySelector(".step-2").classList.remove("active");
+    document.querySelector(".step-1").classList.add("active");
+  });
 </script>
+
+
+
 </body>
 </html>
 
