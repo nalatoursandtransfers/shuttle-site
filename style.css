@@ -1417,7 +1417,7 @@ textarea::placeholder {
 
 .profile-card, .bookings-card {
   padding: 2rem;
-  background: #fff;
+  background: var(--navy-dark);
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }

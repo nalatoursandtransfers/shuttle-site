@@ -1,5 +1,5 @@
 import { auth, db } from "./firebase.js";
-import { onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { onAuthStateChanged, updateProfile, updateEmail } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 import { doc, getDoc, updateDoc, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 // Redirect non-logged-in users
@@ -64,15 +64,42 @@ editForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const user = auth.currentUser;
 
-  await updateProfile(user, { displayName: editForm["edit-name"].value });
+  try {
+    // 1️⃣ Update display name
+    await updateProfile(user, { displayName: editForm["edit-name"].value });
 
-  const userDoc = doc(db, "users", user.uid);
-  await updateDoc(userDoc, {
-    name: editForm["edit-name"].value,
-    email: editForm["edit-email"].value
-  });
+    // 2️⃣ Update email in Firebase Auth if it changed
+    if (editForm["edit-email"].value !== user.email) {
+      await updateEmail(user, editForm["edit-email"].value);
+    }
 
-  document.getElementById("profile-name").textContent = editForm["edit-name"].value;
-  document.getElementById("profile-email").textContent = editForm["edit-email"].value;
-  editMsg.textContent = "Profile updated successfully!";
+    // 3️⃣ Update Firestore document
+    const userDoc = doc(db, "users", user.uid);
+    await updateDoc(userDoc, {
+      name: editForm["edit-name"].value,
+      email: editForm["edit-email"].value
+    });
+
+    // 4️⃣ Immediately update the UI
+    document.getElementById("profile-name").textContent = editForm["edit-name"].value;
+    document.getElementById("profile-email").textContent = editForm["edit-email"].value;
+
+    // 5️⃣ Update auth-section nav greeting if present
+    const authGreeting = document.querySelector(".user-greeting");
+    if (authGreeting) authGreeting.textContent = `Hi, ${editForm["edit-name"].value}`;
+
+    editMsg.textContent = "Profile updated successfully!";
+
+    // Hide edit form
+    editFormContainer.style.display = "none";
+    editBtn.style.display = "inline-block";
+
+  } catch (err) {
+    console.error(err);
+    if (err.code === "auth/requires-recent-login") {
+      editMsg.textContent = "Please log out and log in again to update your email.";
+    } else {
+      editMsg.textContent = "Error updating profile. Please try again.";
+    }
+  }
 });
