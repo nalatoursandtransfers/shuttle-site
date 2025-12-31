@@ -277,3 +277,24 @@ nextBtn.addEventListener("click", async () => {
         alert("There was an error saving your booking. Please try again.");
     }
 });
+
+/* ----------------- CALCULATOR ----------------- */
+const BASE_RATE = 500;
+
+const calcEstimateBtn = document.getElementById("calcEstimate");
+const estimateOutput = document.getElementById("estimateResult");
+
+calcEstimateBtn.addEventListener("click", () => {
+    const hours = parseFloat(document.getElementById("est-hours").value);
+
+    if (!hours || hours <= 0) {
+        estimateOutput.textContent = "Please enter a valid number of hours.";
+        return;
+    }
+
+    const estimate = hours * BASE_RATE;
+
+    estimateOutput.textContent =
+        `Estimated fare: R${estimate.toFixed(2)} (excluding VAT)`;
+});
+

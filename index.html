@@ -22,7 +22,7 @@
     <header>
   <div class="left-section">
     <img src="images/favicon.png" class="logo" alt="NalaTours & Transfers Logo" />
-    <h1>NALATOURS & TRANFERS (SANDTON)</h1>
+    <h1>NALATOURS & TRANSFERS (SANDTON)</h1>
   </div>
   <nav>
     <a href="index.html">Home</a>
@@ -180,9 +180,9 @@
 
 <section class="how-it-works">
     <h4>HOW IT WORKS?</h4>
-
+    
     <div class="how-steps">
-        <div class="step-blocks">
+        <div class="step-blocks" id="step1">
             <!-- LEFT: Step number -->
             <div class="step-number-block" id="step-number">
                 <h3>Step 1</h3>
@@ -201,6 +201,11 @@
             <button id="next-step">&#8594;</button>
         </div>
     </div>
+    <script>
+document.getElementById("step1").addEventListener("click", function () {
+    window.location.href = "booking.html";
+});
+</script>
 </section>
 
 

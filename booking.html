@@ -149,9 +149,42 @@
                 <li><i class="fas fa-whatsapp"></i> We confirm details</li>
                 <li><i class="fas fa-check-circle"></i> No obligation</li>
             </ul>
-        </aside>
 
+            <!-- Fare Estimator -->
+<div class="estimate-info">
+    <h4><i class="fas fa-calculator"></i> Fare Estimator</h4>
+
+    <p class="estimate-text">
+        We understand the importance of budgeting.
+        This calculator provides an <strong>estimated fare only</strong>.
+        Final pricing may vary depending on distance, waiting time,
+        time of day, vehicle type, tolls, and parking.
+    </p>
+
+    <div class="form-group">
+        <label for="est-hours">Estimated Duration (hours)</label>
+        <input
+            id="est-hours"
+            type="number"
+            min="1"
+            step="0.5"
+            placeholder="e.g. 2.5"
+        >
     </div>
+
+    <p class="base-rate">
+        Base rate: <strong>R500 per hour</strong> (excluding VAT)
+    </p>
+
+    <button type="button" class="btn btn-secondary" id="calcEstimate">
+        Calculate Estimate
+    </button>
+
+    <p class="estimate-result" id="estimateResult"></p>
+</div>
+        </aside>
+    </div>
+    
 </main>
 
     <section class="quick-contact">
