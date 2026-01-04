@@ -272,7 +272,6 @@ padding-top: 2px;
     color: var(--navy);
     max-width: 1400px;
     border-radius: 16px;
-    max-height: 800px;
     margin: 0 auto; 
     margin-bottom: 90px;
 }
@@ -282,6 +281,12 @@ padding-top: 2px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 24px;
     margin-top: 40px;
+    width: 100%;
+}
+
+.sa-grid > * {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .service-areas h4 {
@@ -300,6 +305,9 @@ padding-top: 2px;
     font-size: 22px;
     font-weight: 500;
     will-change: transform, opacity;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .sa-item:hover {
@@ -1485,16 +1493,34 @@ textarea::placeholder {
     }
 
     nav {
-        display: flex;
+        display: none;  
         flex-direction: column;
         width: 100%;
         gap: 10px;
+        padding-top: 10px;
     }
 
     nav a {
         margin-left: 0;
         font-size: 14px;
         padding: 6px 0;
+    }
+
+    nav.active {
+        display: flex;              /* only show when hamburger clicked */
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 28px;
+        cursor: pointer;
+        color: var(--text-light);
+    }
+
+    @media (max-width: 900px) {
+        .menu-toggle {
+        display: block;
+        }
     }
 
     /* ===== HERO ===== */
@@ -1538,7 +1564,16 @@ textarea::placeholder {
     }
 
     .service-areas {
-        padding: 20px;
+        padding: 30px 20px;
+    }
+
+    .sa-item {
+        font-size: 18px;
+        padding: 22px 16px;
+    }
+
+    .sa-subtitle {
+        font-size: 16px;
     }
 
     /* ===== FLEET BENEFITS ===== */

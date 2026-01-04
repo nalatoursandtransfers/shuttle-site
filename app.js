@@ -279,7 +279,7 @@ nextBtn.addEventListener("click", async () => {
 });
 
 /* ----------------- CALCULATOR ----------------- */
-const BASE_RATE = 500;
+const BASE_RATE = 200;
 
 const calcEstimateBtn = document.getElementById("calcEstimate");
 const estimateOutput = document.getElementById("estimateResult");

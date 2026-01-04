@@ -23,6 +23,8 @@
   <div class="left-section">
     <img src="images/favicon.png" class="logo" alt="NalaTours & Transfers Logo" />
     <h1>NALATOURS & TRANSFERS (SANDTON)</h1>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
   </div>
   <nav>
     <a href="index.html">Home</a>
@@ -242,5 +244,15 @@ document.getElementById("step1").addEventListener("click", function () {
     <script type="module" src="app.js"></script>
     <script type="module" src="navbar-auth.js"></script>
 
+    <script>
+const toggle = document.getElementById("menuToggle");
+const nav = document.querySelector("nav");
+
+if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+    });
+}
+</script>
 </body>
 </html>

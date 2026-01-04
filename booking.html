@@ -24,6 +24,8 @@
   <div class="left-section">
     <img src="images/favicon.png" class="logo" alt="NalaTours & Transfers Logo" />
     <h1>NALATOURS & TRANSFERS (SANDTON)</h1>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
   </div>
   <nav>
     <a href="index.html">Home</a>
@@ -173,7 +175,7 @@
     </div>
 
     <p class="base-rate">
-        Base rate: <strong>R500 per hour</strong> (excluding VAT)
+        Base rate: <strong>R200 per hour</strong> (excluding VAT)
     </p>
 
     <button type="button" class="btn btn-secondary" id="calcEstimate">
@@ -290,7 +292,16 @@
   });
 </script>
 
+<script>
+const toggle = document.getElementById("menuToggle");
+const nav = document.querySelector("nav");
 
+if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+    });
+}
+</script>
 
 </body>
 </html>
